@@ -26,27 +26,15 @@ public class EmployeeService {
 
 	RestTemplate restTemplate = new RestTemplate();
 
-	public EmployeeResponse getEmployeesByDepartment(long departmentId, boolean verbose) {
+	public EmployeeResponse getEmployeesByDepartment(long departmentId) {
 
 		EmployeeResponse response = new EmployeeResponse();
-
-	/*	List<EmployeeModified> employeeList = new ArrayList<EmployeeModified>();
-
-		List<RequestInsight> apiCallList = new ArrayList<RequestInsight>();
-
-		List<Employee> empOriginalList = new ArrayList<Employee>();*/
-
-		response.setDepartment(getDepartment(departmentId, verbose));
-
-	
-		response.setEmployees(getEmployeesForDepartment(departmentId, verbose));
-		
-		if (verbose) {
+		response.setDepartment(getDepartment(departmentId, RequestInsightCollector.isVerbose()));
+		response.setEmployees(getEmployeesForDepartment(departmentId, RequestInsightCollector.isVerbose()));
+		if (RequestInsightCollector.isVerbose()) {
 			response.setRequestInsignts(RequestInsightCollector.getRequestInsights());
 		}
-
 		return response;
-
 	}
 
 	private Department getDepartment(long departmentId, boolean verbose) {
@@ -112,25 +100,8 @@ public class EmployeeService {
 				requestInsight.setElaspsedTime(RequestInsightCollector.getElapsedTime(requestID));
 				RequestInsightCollector.addRequestInsight(requestInsight);
 			}
-			
-			//RequestInsight apiCall = new RequestInsight();
-			//apiCall.setApiURI(URL_DEPARTMENT_EMPLOYEES + department.getId() + "/employees");
-			//apiCall.setHttpStatusCode("200");
-
-	/*		for (Employee e : list) {
-				Employee employeeResponse = new Employee(e.getId(), e.getEmploeeNumber(), e.getEmployeeName(),
-						e.getTitle(), e.getDepartment());
-
-				empOriginalList.add(employeeResponse);
-			}
-
-			apiCall.setApiResponse(empOriginalList.toString());
-			apiCallList.add(apiCall);
-			response.setVerbose(apiCallList);*/
 		}
-		
 		return employeeList;
-
 	}
 
 }

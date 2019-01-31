@@ -32,12 +32,7 @@ public class EmployeeServiceRESTClientController {
 	                    MediaType.APPLICATION_XML_VALUE })
 	    @ResponseBody
 	    public EmployeeResponse getEmployeesByDepartment(@PathVariable("departmentid") long departmentid, HttpServletRequest request) {
-		   boolean verbose = Boolean.valueOf(request.getParameter("verbose"));
-		 
-		   logger.info("Verbose :"+verbose);
-			RequestInsightCollector.setVerbose(verbose);
-			
-		   EmployeeResponse list = employeeService.getEmployeesByDepartment(departmentid, verbose);
+		   EmployeeResponse list = employeeService.getEmployeesByDepartment(departmentid);
 		   RequestInsightCollector.releaseRequest();
 	        return list;
 	    }
