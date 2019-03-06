@@ -43,6 +43,14 @@
 # 3. You should have gradle installed and in path
 # 4. You should have a MySQ database called `verbose_demo_db`
 
+# Functional Description : We have two APIs here. 
+
+  A. rolligstone-debug-tool-verbose-demo-department-employee-rest-api - No surprise Spring Boot REST API
+  B. rollingstone-debug-tool-verbose-demo-department-employee-client-api - Client REST API Calling the REST Service and equiped with the verbose feature.
+  C. The Client API makes two calls to the Service
+    # 1. Get a Department By ID
+    # 2. Gets all the employees who works for that Department
+   
 # Process
 
 # 1. git clone https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo.git
@@ -87,4 +95,11 @@ http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?ve
 
 # 13 As we can see in a debugging situation, without touching source code or even opening our IDE, not calling the engineering responsibles for the application we get significant details that can help pinpoint the root cause of the bug / issue. This accurate identification of the root cause can save revenue loss, save engineers and everybody else lengthy nighttime calls etc.
 
+# 14. Now some technical staff. I have used Spring Boot Aspect Oriented Programming and Spring Boot RESTTemplate Request Interceptor to make it easy for the average engineer to integrate this without a lot of addition programming. Some special classes can be reviewed for better understanding
+
+  # A. com.rollingstone.debugclientdemo.verbose.aspects.VerboseAspect.java - This class leaves the Spring REST Controller free from having to deal with verbose related code. It has @Before annotation and @AfterReturning annotation to start collecting metadata and stop collecting metadata for a request.
+  
+  # B. com.rollingstone.debugclientdemo.model.verbose.RequestInsightCollector.java - This class has all the methods to implement the verbose functionality and it uses ThreadLocal to do so.
+  
+  # C. com.rollingstone.debugclientdemo.model.verbose.RequestInsight.java  - The Model class for verbose feature
 
