@@ -105,4 +105,4 @@ http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?ve
   
   # D. com.rollingstone.debugclientdemo.verbose.interceptors.RestTemplateVerboseInterceptor  - The Spring MVC Request Interceotor. This class needs a little tweak based on what service is called. The tweak is self explanatory. Please contact me if there are questions.
 
-# 15. If we have a situiaton where Service A calls Service B and Service B calls Service C, we can enable this feature in all three services. Service A will pass the additional verbose paramater to Service B and Service B to C etc. All upstream response then, will include each services original response along with the modified response.
+# 15. If we have a situation, where Service A calls Service B and Service B calls Service C, we can enable this feature in all three services. Service A will pass the additional verbose paramater to Service B and Service B to C etc. All upstream response then, will include each service's original response along with the modified response.
