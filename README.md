@@ -106,3 +106,5 @@ http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?ve
   # D. com.rollingstone.debugclientdemo.verbose.interceptors.RestTemplateVerboseInterceptor  - The Spring MVC Request Interceotor. This class needs a little tweak based on what service is called. The tweak is self explanatory. Please contact me if there are questions.
 
 # 15. If we have a situation, where Service A calls Service B and Service B calls Service C, we can enable this feature in all three services. Service A will pass the additional verbose paramater to Service B and Service B to C etc. All upstream response then, will include each service's original response along with the modified response.
+
+# 16. This is for my friends from a security background : This verbose feature has to be blocked at the external CDN i.e. Akamai layer. We do not want the entire world to know the internal calls Microservices are making. Without being on VPN or inside the protected network, this verbose paramater should not work.
