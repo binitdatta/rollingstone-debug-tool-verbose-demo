@@ -45,11 +45,11 @@
 
 # Functional Description : We have two APIs here. 
 
-  A. rolligstone-debug-tool-verbose-demo-department-employee-rest-api - No surprise Spring Boot REST API
-  B. rollingstone-debug-tool-verbose-demo-department-employee-client-api - Client REST API Calling the REST Service and equiped with the verbose feature.
-  C. The Client API makes two calls to the Service
-    # 1. Get a Department By ID
-    # 2. Gets all the employees who works for that Department
+  # A. rolligstone-debug-tool-verbose-demo-department-employee-rest-api - No surprise Spring Boot REST API
+  # B. rollingstone-debug-tool-verbose-demo-department-employee-client-api - Client REST API Calling the REST Service and equiped with the verbose feature.
+  # C. The Client API makes two calls to the Service
+    ## 1. Get a Department By ID
+    ## 2. Gets all the employees who works for that Department
    
 # Process
 
