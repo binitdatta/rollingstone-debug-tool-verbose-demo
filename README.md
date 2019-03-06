@@ -41,7 +41,7 @@
 # 1. You should have your MySQL like I have My own MySQL.
 # 2. You should have Maven installed and in path
 # 3. You should have gradle installed and in path
-# 4. You should have a MySQ database called `verbose_demo_db`
+# 4. You should have a MySQL database called `verbose_demo_db`
 
 # Functional Description : We have two APIs here. 
 
