@@ -49,39 +49,22 @@
 
 # 2. cd rollingstone-debug-tool-verbose-demo
 
-# 3. mvn clean install
+# 3. cd rolligstone-debug-tool-verbose-demo-department-employee-rest-api
 
-# 4. java -jar target\rollingstone-ecommerce-eureka-service-discovery-1.0.jar
+# 4. mvn clean install
 
-# 5. cd ..
+# 4. java -jar target/verbose-demo-rest-api.jar
 
-# 6. cd rollingstone-ecommerce-remote-config-service
+# 5. Open another comman prompt
 
-# 7. gradle clean build
+# 6. cd rollingstone-debug-tool-verbose-demo
 
-# 8. java -jar build\libs\rollingstone-ecommerce-remote-config-service-1.0.jar
+# 7. cd rollingstone-debug-tool-verbose-demo-department-employee-client-api
 
-# 9. cd ..
+# 8. mvn clean install
 
-# 10. cd rollingstone-ecommerce-account-api
+# 9. java -jar target/debugclientdemo-0.0.1-SNAPSHOT.jar
 
-# 11. gradle clean build
-
-# 12. java -jar -Dspring.profiles.active=mysql build\libs\rollingstone-ecommerce-account-api-1.0.jar
-
-# 13. cd ..
-
-# 14. cd rollingstone-ecommerce-user-api
-
-# 15. gradle clean build
-
-# 16. java -jar -Dspring.profiles.active=mysql build\libs\rollingstone-ecommerce-user-api-1.0.jar
-
-# 17. cd rollingstone-ecommerce-spring-boot-resttemplate-client
-
-# 18. gradle clean build
-
-# 19. java -jar build/libs/rollingstone-ecommerce-spring-boot-resttemplate-client.jar
 
 # 20. http://localhost:8080//account-and-user/verbose/1 and no debug shoud come
 
