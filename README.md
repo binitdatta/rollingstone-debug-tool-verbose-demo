@@ -46,7 +46,7 @@
 # Functional Description : We have two APIs here. 
 
   # A. rolligstone-debug-tool-verbose-demo-department-employee-rest-api - No surprise Spring Boot REST API
-  # B. rollingstone-debug-tool-verbose-demo-department-employee-client-api - Client REST API Calling the REST Service and equiped with the verbose feature.
+  # B. rollingstone-debug-tool-verbose-demo-department-employee-client-api - Client REST API Calling the REST Service and equipped with the verbose feature.
   # C. The Client API makes two calls to the Service
     ## 1. Get a Department By ID
     ## 2. Gets all the employees who works for that Department
@@ -63,7 +63,7 @@
 
 # 4. java -jar target/verbose-demo-rest-api.jar
 
-# 5. Open another comman prompt
+# 5. Open another command prompt
 
 # 6. cd rollingstone-debug-tool-verbose-demo
 
@@ -79,11 +79,11 @@ http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees
 
 ![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_false_1.png)
 
-# 11. We get
+# 11. We get the following json data
 
 ![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_false_2.png)
 
-# 12. When we try the URL with verbose request paramater
+# 12. When we try the URL with the verbose request paramater
 
 http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?verbose=true
 
@@ -93,7 +93,7 @@ http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?ve
 
 ![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_true_3.png)
 
-# 13 As we can see in a debugging situation, without touching source code or even opening our IDE, not calling the engineering responsibles for the application we get significant details that can help pinpoint the root cause of the bug / issue. This accurate identification of the root cause can save revenue loss, save engineers and everybody else lengthy nighttime calls etc.
+# 13. As we can see in a debugging situation, without touching source code or even opening our IDE, not calling the engineering team responsible for the application, we get significant details that can help pinpoint the root cause of the bug / issue. If the downsteam application is sending inacurate data elements, then the problem belongs to them! This accurate identification of the root cause can save revenue loss, save engineers and everybody else from lengthy nighttime calls etc. This tool can even be used by 24/7 technical support staff.
 
 # 14. Now some technical staff. I have used Spring Boot Aspect Oriented Programming and Spring Boot RESTTemplate Request Interceptor to make it easy for the average engineer to integrate this without a lot of addition programming. Some special classes can be reviewed for better understanding
 
@@ -102,4 +102,7 @@ http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?ve
   # B. com.rollingstone.debugclientdemo.model.verbose.RequestInsightCollector.java - This class has all the methods to implement the verbose functionality and it uses ThreadLocal to do so.
   
   # C. com.rollingstone.debugclientdemo.model.verbose.RequestInsight.java  - The Model class for verbose feature
+  
+  # D. com.rollingstone.debugclientdemo.verbose.interceptors.RestTemplateVerboseInterceptor  - The Spring MVC Request Interceotor. This class needs a little tweak based on what service is called. The tweak is self explanatory. Please contact me if there are questions.
 
+# 15. If we have a situiaton where Service A calls Service B and Service B calls Service C, we can enable this feature in all three services. Service A will pass the additional verbose paramater to Service B and Service B to C etc. All upstream response then, will include each services original response along with the modified response.
