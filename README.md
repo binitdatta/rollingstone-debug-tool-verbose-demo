@@ -95,7 +95,7 @@ http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?ve
 
 # 13. As we can see in a debugging situation, without touching source code or even opening our IDE, not calling the engineering team responsible for the application, we get significant details that can help pinpoint the root cause of the bug / issue. If the downsteam application is sending inacurate data elements, then the problem belongs to them! This accurate identification of the root cause can save revenue loss, save engineers and everybody else from lengthy nighttime calls etc. This tool can even be used by 24/7 technical support staff.
 
-# 14. Now some technical staff. I have used Spring Boot Aspect Oriented Programming and Spring Boot RESTTemplate Request Interceptor to make it easy for the average engineer to integrate this without a lot of addition programming. Some special classes can be reviewed for better understanding
+# 14. Now some technical staff. I have used Spring Boot Aspect Oriented Programming and Spring Boot RESTTemplate Request Interceptor to make it easy for the average engineer to integrate this without a lot of additional programming. Some special classes can be reviewed for better understanding
 
   # A. com.rollingstone.debugclientdemo.verbose.aspects.VerboseAspect.java - This class leaves the Spring REST Controller free from having to deal with verbose related code. It has @Before annotation and @AfterReturning annotation to start collecting metadata and stop collecting metadata for a request.
   
