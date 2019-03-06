@@ -65,7 +65,26 @@
 
 # 9. java -jar target/debugclientdemo-0.0.1-SNAPSHOT.jar
 
+# 10. When we try the URL without verbose request paramater
 
-# 20. http://localhost:8080//account-and-user/verbose/1 and no debug shoud come
+http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees
 
-# 31. http://localhost:8080//account-and-user/verbose/1?verbose=true
+![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_false_1.png)
+
+# 11. We get
+
+![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_false_2.png)
+
+# 12. When we try the URL with verbose request paramater
+
+http://localhost:8094/rollingstone-verbose-demo/client/department/1/employees?verbose=true
+
+![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_true_1.png)
+
+![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_true_2.png)
+
+![alt text](https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo/blob/master/verbose_demo_true_3.png)
+
+# 13 As we can see in a debugging situation, without touching source code or even opening our IDE, not calling the engineering responsibles for the application we get significant details that can help pinpoint the root cause of the bug / issue. This accurate identification of the root cause can save revenue loss, save engineers and everybody else lengthy nighttime calls etc.
+
+
