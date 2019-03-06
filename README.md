@@ -1,5 +1,4 @@
 # rollingstone-debug-tool-verbose-demo
-rollingstone-debug-tool-verbose-demo
 
 # This multiple applications in this repository is added to demonstrate a debug aid called verbose. 
 
@@ -25,7 +24,7 @@ rollingstone-debug-tool-verbose-demo
 ## 7. The Engineer looks at the request and searches either Splunk Logs / ELK Logs to retreive past log data, hoping the incident took
 ## place within the last so many days so logs are available
 
-## 8. Logs do not help much as production logs do not contain debug messages and the Developer starts to debug manually within his/her IDE using user data.
+# 8. Logs do not help much as production logs do not contain debug messages and the Developer starts to debug manually within his/her IDE using user data.
 
 # 9. Step number 9 takes time......, goes in a loop, almost all downstream system leads claim through email / comments in ServiceNow that the issue certainly does not belong to them at all (trust ne, speaking from personal experience :), email chains starts to make rounds between different systems / applications, onshore / offshore.
 
@@ -39,16 +38,16 @@ rollingstone-debug-tool-verbose-demo
 
 # Prequisitites
 
-# 1. You should have your MySQL
+# 1. You should have your MySQL like I have My own MySQL.
 # 2. You should have Maven installed and in path
 # 3. You should have gradle installed and in path
-# 4. You should have a MySQ database called `rs_ecommerce`
+# 4. You should have a MySQ database called `verbose_demo_db`
 
 # Process
 
-# 1. git clone https://github.com/binitdatta/rollingstone-ecommerce-spring-boot-verbose-debug-aid.git
+# 1. git clone https://github.com/binitdatta/rollingstone-debug-tool-verbose-demo.git
 
-# 2. cd rollingstone-ecommerce-eureka-service-discovery
+# 2. cd rollingstone-debug-tool-verbose-demo
 
 # 3. mvn clean install
 
