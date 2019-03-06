@@ -11,7 +11,9 @@ import com.rollingstone.debugclientdemo.model.verbose.RequestInsight;
 public class EmployeeResponse {
 
 	private List<EmployeeModified> employees;
+	
 	private Department department;
+	
 	@JsonInclude(Include.NON_EMPTY)	
 	private List<RequestInsight> requestInsignts = new ArrayList<RequestInsight>();
 	

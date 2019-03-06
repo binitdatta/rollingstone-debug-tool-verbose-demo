@@ -5,9 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.rollingstone.debugclientdemo.model.Department;
+import com.rollingstone.debugclientdemo.model.EmployeeModified;
+
 
 public class RequestInsightCollector {
 
+	static Logger logger  = LoggerFactory.getLogger(RequestInsightCollector.class);
+
+	public static Map<String,String> requestIdMap = new HashMap<String, String>();
 
 	static boolean verbose;
 	
@@ -18,7 +27,6 @@ public class RequestInsightCollector {
     public static void startRequest(String requedtID)
     {
     	if (verbose) {
-    		//requestContext = new ThreadLocal<Map>();
 	    	releaseRequest();
 	    	RequestInsight requestInsght = new RequestInsight();
 	    	requestInsght.setStartTime(System.currentTimeMillis());
@@ -28,9 +36,21 @@ public class RequestInsightCollector {
 	        requestContext.set(requestData);
     	}
     }
-
-
     
+    public static void initializeRequest() {
+    	requestContext = new ThreadLocal<Map>();
+    	requestInsights = new ArrayList<RequestInsight>();
+    	requestIdMap = new HashMap<String, String>();
+    }
+
+
+    public static void addRequestIdToMap(String key, String value) {
+    	requestIdMap.put(key, value);
+    }
+    
+    public static String getRequestIdFromMap(String key) {
+    	return requestIdMap.get(key);
+    }
 	public static boolean isVerbose() {
 		return verbose;
 	}
@@ -52,6 +72,7 @@ public class RequestInsightCollector {
     public static void releaseRequest()
     {
     	requestContext.remove();
+    	requestIdMap.clear();
     }
 
     public static RequestInsight getRequestInsight(String requestID)
@@ -60,6 +81,8 @@ public class RequestInsightCollector {
                 : (RequestInsight) requestContext.get().get(requestID);
         return requestInsight;
     }
+    
+	
     
     public static double getElapsedTime(String requestID)
     {
@@ -77,5 +100,13 @@ public class RequestInsightCollector {
     
     public static void addRequestInsight(RequestInsight requestInsight) {
     	RequestInsightCollector.requestInsights.add(requestInsight);
+    }
+    
+   
+    
+    public static void addDebugLogMessage(String key, String source, String message) {
+    	logger.debug(source +": "+message);
+    	String requestId = requestIdMap.get(key);
+    	getRequestInsight(requestId).addDebugMessage(source +": "+message);
     }
 }

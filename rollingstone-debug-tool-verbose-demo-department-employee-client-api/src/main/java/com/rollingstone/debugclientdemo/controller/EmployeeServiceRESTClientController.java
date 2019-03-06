@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rollingstone.debugclientdemo.model.Department;
 import com.rollingstone.debugclientdemo.model.EmployeeResponse;
 import com.rollingstone.debugclientdemo.model.verbose.RequestInsightCollector;
 import com.rollingstone.debugclientdemo.service.EmployeeService;
@@ -33,6 +34,7 @@ public class EmployeeServiceRESTClientController {
 	    @ResponseBody
 	    public EmployeeResponse getEmployeesByDepartment(@PathVariable("departmentid") long departmentid, HttpServletRequest request) {
 		   EmployeeResponse list = employeeService.getEmployeesByDepartment(departmentid);
+			
 		   RequestInsightCollector.releaseRequest();
 	        return list;
 	    }

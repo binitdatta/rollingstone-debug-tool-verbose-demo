@@ -6,8 +6,10 @@ import java.util.Set;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-
+@JsonInclude(Include.NON_NULL)
 public class Department {
 
 
@@ -17,6 +19,7 @@ public class Department {
 	
 	private String departmentName;
 	
+	@JsonInclude(Include.NON_EMPTY)	
 	private Set<Employee> employees = new HashSet<Employee>();
 
 	public long getId() {

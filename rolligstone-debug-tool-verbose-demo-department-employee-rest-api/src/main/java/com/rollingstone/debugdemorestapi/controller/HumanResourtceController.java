@@ -1,6 +1,10 @@
 package com.rollingstone.debugdemorestapi.controller;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -59,6 +63,10 @@ public class HumanResourtceController {
                     MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
     public List<Department> getDepartments() {
+    	  TimeZone tz = TimeZone.getTimeZone("GMT+9:00");
+    	    Locale loc = new Locale("ja", "JP", "JP");
+    	    Calendar calendar = Calendar.getInstance(loc);
+    	    GregorianCalendar gc = (GregorianCalendar) calendar; 
         List<Department> list = departmentService.getAllDepartments();
         return list;
     }

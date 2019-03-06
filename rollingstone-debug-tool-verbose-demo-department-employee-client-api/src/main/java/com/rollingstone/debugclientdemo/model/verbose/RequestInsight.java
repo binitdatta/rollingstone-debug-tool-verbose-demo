@@ -10,12 +10,19 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class RequestInsight {
 
 	private String requestID;
+	
 	private String requestURI;
+	
 	private String requestBody;
+	
 	private String requestResponse;
+	
 	private String requestStatus;
+	
 	private long startTime;
+	
 	private double elaspsedTime;
+	
 	private boolean verbose;
 
 	@JsonInclude(Include.NON_EMPTY)	
