@@ -21,7 +21,7 @@
 
 ## 6. Dev Team manager owns ticket and assigns the ticket to an Engineer
 
-## 7. The Engineer looks at the request and searches either Splunk Logs / ELK Logs to retreive past log data, hoping the incident took
+## 7. The Engineer looks at the request and searches either Splunk Logs / ELK Logs to retrieve past log data, hoping the incident took
 ## place within the last so many days so logs are available
 
 # 8. Logs do not help much as production logs do not contain debug messages and the Developer starts to debug manually within his/her IDE using user data.
