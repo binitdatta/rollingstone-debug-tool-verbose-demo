@@ -24,11 +24,11 @@
 ## 7. The Engineer looks at the request and searches either Splunk Logs / ELK Logs to retrieve past log data, hoping the incident took
 ## place within the last so many days so logs are available
 
-# 8. Logs do not help much as production logs do not contain debug messages and the Developer starts to debug manually within his/her IDE using user data. It is also almost certain that you would love to see the related request and response messages but LOGS are not allowed to contain request / response data for HIPAA compliance, due to increasing size of logs etc. In essense, LOGS are there for performing analytics, aggregration, average response time, 99th percentalie and the like rather to help with precision debugging. 
+# 8. Logs do not help much as production logs do not contain debug messages and the Developer starts to debug manually within his/her IDE using user data. It is also almost certain that you would love to see the related request and response messages but LOGS are not allowed to contain request / response data for HIPAA compliance, due to increasing size of logs etc. In essence, LOGS are there for performing analytics, aggregation, average response time, 99th percentile and the like rather to help with precision debugging. 
 
 # 9. Step number 9 takes time......, goes in a loop, almost all downstream system leads claim through email / comments in ServiceNow that the issue certainly does not belong to them at all (trust ne, speaking from personal experience :), email chains starts to make rounds between different systems / applications, onshore / offshore.
 
-## 10. If this happens with a critical API where the system / company is actually losing money by the hour, developers spend hours / days to fix and the company still looses huge sums. The immediate impact is that engineers are speding time not by adding new features but losing sleep trying to fix a non-existing issue. That is a double loss of money and development hours that could have been used productively adding features customers want, features competitors do not have etc. Losing time like these is thus a strict no-no for smart teams.
+## 10. If this happens with a critical API where the system / company is actually losing money by the hour, developers spend hours / days to fix and the company still loses huge sums. The immediate impact is that engineers are spending time not by adding new features but losing sleep trying to fix a non-existing issue. That is a double loss of money and development hours that could have been used productively adding features customers want, features competitors do not have etc. Losing time like these is thus a strict no-no for smart teams.
 
 # Alternative
 
