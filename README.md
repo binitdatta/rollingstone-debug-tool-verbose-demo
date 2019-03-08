@@ -49,7 +49,7 @@
   # B. rollingstone-debug-tool-verbose-demo-department-employee-client-api - Client REST API Calling the REST Service and equipped with the verbose feature.
   # C. The Client API makes two calls to the Service
     ## 1. Get a Department By ID
-    ## 2. Gets all the employees who works for that Department
+    ## 2. Get all the employees who works for that Department
    
 # Process
 
