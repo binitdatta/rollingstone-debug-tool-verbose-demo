@@ -1,0 +1,36 @@
+How to Build
+
+1. Navigate to rolligstone-debug-tool-verbose-demo-department-employee-rest-api
+
+2. Change your MySQL Password
+
+3. mvn clean install
+
+4. java -jar target/verbose-demo-rest-api.jar
+
+Client
+
+1. Navigate to rollingstone-debug-tool-verbose-demo-department-employee-client-api
+
+2. mvn clean install
+
+3. java -jar target/debugclientdemo-0.0.1-SNAPSHOT.jar
+
+
+
+1. Get All Departments 
+
+http://localhost:9094/rollingstone-verbose-demo/departments
+
+2. Get All Employees of a Single Department
+
+http://localhost:9094/rollingstone-verbose-demo/department/6/employees
+
+3. Test the Client
+
+http://localhost:8094/rollingstone-verbose-demo/client/department/6/employees
+
+4. Test verbose
+
+http://localhost:8094/rollingstone-verbose-demo/client/department/6/employees?verbose=true
+
