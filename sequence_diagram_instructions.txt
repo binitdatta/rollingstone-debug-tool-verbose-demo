@@ -1,0 +1,85 @@
+You can try these in https://www.websequencediagrams.com/
+
+Summary without Spring Boot AOP and Spring Boot RestTemplate Request Interceptor
+
+Copy From under the dotted line
+
+------------------------------------------------------------------
+title Verbose Tool Call Sequence
+
+BrowserClient->EmployeeServiceRESTClientController:getEmployeesByDepartment Department Wise Emps
+note right of EmployeeServiceRESTClientController : Will Use AOP and RESTemplate Interceptor
+EmployeeServiceRESTClientController->EmployeeService:getEmployeesByDepartment Department Wise Emps
+EmployeeService->EmployeeServiceHelper:getDepartment Get Department for ID 
+EmployeeService->EmployeeResponse:setDepartment Set Department Object to Response
+EmployeeService->EmployeeServiceHelper:getEmployeesForDepartment Get Emps for Department ID 
+EmployeeService->EmployeeResponse:setEmployees Set Employee Object to Response
+EmployeeService->RequestInsightCollector:isVerbose Check if Verbose
+RequestInsightCollector->EmployeeService:return true / false
+EmployeeService->EmployeeResponse:setRequestInsignts
+EmployeeService->RequestInsightCollector:getRequestInsights
+EmployeeResponse->EmployeeService:return
+EmployeeService->EmployeeServiceRESTClientController:return
+EmployeeServiceRESTClientController->RequestInsightCollector:releaseRequest
+EmployeeServiceRESTClientController->BrowserClient:return
+
+-------------------------------------------------------------------------
+Copy Above the dotted line
+
+Detailed with Spring Boot AOP and Spring Boot RestTemplate Request Interceptor
+
+Copy From under the dotted line
+
+------------------------------------------------------------------
+title Verbose Tool Call Sequence
+
+BrowserClient->SprintBootAOP:interceptHTTPCall Spring AOP works like JS Events
+SprintBootAOP->VerboseAspect:logBeforeRestCallgetEmployeesByDepartment Spring AOP works like JS Events
+VerboseAspect->RequestContextHolder:getRequest Get HttpServletRequest 
+VerboseAspect->HttpServletRequest:getParameter Check if Verbose 
+VerboseAspect->HttpServletRequest:getParameter Check if Verbose 
+VerboseAspect->RequestInsightCollector:initializeRequest Check if Verbose 
+VerboseAspect->RequestInsightCollector:setVerbose(verbose) Check if Verbose 
+VerboseAspect->Logger:logRequest 
+VerboseAspect->SprintBootAOP:return 
+SprintBootAOP->EmployeeServiceRESTClientController:getEmployeesByDepartment Department Wise Emps
+note right of EmployeeServiceRESTClientController : Will Use AOP and RESTemplate Interceptor
+EmployeeServiceRESTClientController->EmployeeService:getEmployeesByDepartment Department Wise Emps
+EmployeeService->EmployeeServiceHelper:getDepartment Get Department for ID 
+SprintBootAOP->VerboseAspect:logBeforeEmployeeServicegetDepartment
+VerboseAspect->UUID:randomUUID()
+VerboseAspect->RequestInsightCollector:startRequest()
+VerboseAspect->RequestInsightCollector:addRequestIdToMap("DEPARTMENT", requestID)
+VerboseAspect->SprintBootAOP:return
+EmployeeService->SprintBootAOP :getDepartment
+SprintBootAOP->EmployeeServiceHelper:getDepartment
+EmployeeServiceHelper->ClientHttpRequestInterceptor :intercept
+ClientHttpRequestInterceptor->RestTemplate :execute
+RestTemplate->ClientHttpRequestInterceptor :reponse
+ClientHttpRequestInterceptor->RestTemplate :extractMetadata
+ClientHttpRequestInterceptor->RequestInsightCollector :setMetaData
+ClientHttpRequestInterceptor->EmployeeServiceHelper :return
+EmployeeServiceHelper->EmployeeService :return
+EmployeeService->EmployeeResponse:setDepartment Set Department Object to Response
+EmployeeService->SprintBootAOP :getEmployeesForDepartment
+SprintBootAOP->EmployeeServiceHelper:getEmployeesForDepartment
+EmployeeServiceHelper->ClientHttpRequestInterceptor :intercept
+ClientHttpRequestInterceptor->RestTemplate :execute
+RestTemplate->ClientHttpRequestInterceptor :reponse
+ClientHttpRequestInterceptor->RestTemplate :extractMetadata
+ClientHttpRequestInterceptor->RequestInsightCollector :setMetaData
+ClientHttpRequestInterceptor->EmployeeServiceHelper :return
+EmployeeServiceHelper->EmployeeService :return
+EmployeeService->EmployeeServiceHelper:getEmployeesForDepartment Get Emps for Department ID 
+EmployeeService->EmployeeResponse:setEmployees Set Employee Object to Response
+EmployeeService->RequestInsightCollector:isVerbose Check if Verbose
+RequestInsightCollector->EmployeeService:return true / false
+EmployeeService->EmployeeResponse:setRequestInsignts
+EmployeeService->RequestInsightCollector:getRequestInsights
+EmployeeResponse->EmployeeService:return
+EmployeeService->EmployeeServiceRESTClientController:return
+EmployeeServiceRESTClientController->RequestInsightCollector:releaseRequest
+EmployeeServiceRESTClientController->BrowserClient:return
+
+-------------------------------------------------------------------------
+Copy Above the dotted line
